@@ -31,33 +31,43 @@ namespace fukusyu0531
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            Text = MousePosition.X + "," + MousePosition.Y;
+            Point p = PointToClient(MousePosition);
+
+            label2.Left = -(label2.Width/2) + p.X;
+            label2.Top = -(label2.Height / 2) + p.Y;
+            
             label1.Left += vx;
             label1.Top += vy;
-            if (label1.Left <= 0)
+
+            if (label1.Left < 0)
             {
-                vx = -vx;
+                vx = Math.Abs(vx); ;
             }
-            if (label1.Top <= 0)
+            if (label1.Top < 0)
             {
-                vy = -vy;
+                vy = Math.Abs(vy); ;
             }
-            if (label1.Left >= ClientSize.Width - label1.Width)
+            if (label1.Left > ClientSize.Width - label1.Width)
             {
-                vx = -vx;
+                vx = -Math.Abs(vx);
             }
-            if (label1.Top >= ClientSize.Height - label1.Height)
+            if (label1.Top > ClientSize.Height - label1.Height)
             {
-                vy = -vy;
+                vy = -Math.Abs(vy); ;
             }
-            
-         //527,388 , 35,12       
+
+            if ((p.X >= label1.Left) && (p.X <= label1.Right) && (p.Y >= label1.Top) && (p.Y <= label1.Bottom))
+                timer1.Enabled = false;
+            else
+                timer1.Enabled = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             //MessageBox.Show("" + label1.Right);  
-            MessageBox.Show("" + ClientSize.Width + "," + ClientSize.Height);
-            MessageBox.Show("" + label1.Width + "," + label1.Height);
+            //MessageBox.Show("" + ClientSize.Width + "," + ClientSize.Height);
+            //MessageBox.Show("" + label1.Width + "," + label1.Height);
         }
         
     }
