@@ -34,20 +34,30 @@ namespace fukusyu0531
             label1.Left += vx;
             label1.Top += vy;
             if (label1.Left <= 0)
+            {
                 vx = -vx;
+            }
             if (label1.Top <= 0)
+            {
                 vy = -vy;
-            if (label1. Right >= 523)
+            }
+            if (label1.Left >= ClientSize.Width - label1.Width)
+            {
                 vx = -vx;
-            if (label1.Bottom >= 383)
+            }
+            if (label1.Top >= ClientSize.Height - label1.Height)
+            {
                 vy = -vy;
+            }
             
-                
+         //527,388 , 35,12       
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             //MessageBox.Show("" + label1.Right);  
+            MessageBox.Show("" + ClientSize.Width + "," + ClientSize.Height);
+            MessageBox.Show("" + label1.Width + "," + label1.Height);
         }
         
     }
