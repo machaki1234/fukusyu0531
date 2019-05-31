@@ -25,15 +25,31 @@ namespace fukusyu0531
             
                 label1.Left = vx;
                 label1.Top = vy;
-            
+                 
             
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(label1.Left >= 0)
             label1.Left += vx;
             label1.Top += vy;
+            if (label1.Left <= 0)
+                vx = -vx;
+            if (label1.Top <= 0)
+                vy = -vy;
+            if (label1. Right >= 523)
+                vx = -vx;
+            if (label1.Bottom >= 383)
+                vy = -vy;
+            
+                
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //MessageBox.Show("" + label1.Right);  
+        }
+        
     }
+    
 }
