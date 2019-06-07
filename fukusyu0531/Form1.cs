@@ -12,8 +12,9 @@ namespace fukusyu0531
 {
     public partial class Form1 : Form
     {
-        int vx = -10;
-        int vy = -10;
+        int vx = -3;
+        int vy = -3;
+        int itime;
 
         public Form1()
         {
@@ -58,9 +59,13 @@ namespace fukusyu0531
             }
 
             if ((p.X >= label1.Left) && (p.X <= label1.Right) && (p.Y >= label1.Top) && (p.Y <= label1.Bottom))
+            {
                 timer1.Enabled = false;
+            }
             else
+            {
                 timer1.Enabled = true;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -68,6 +73,11 @@ namespace fukusyu0531
             //MessageBox.Show("" + label1.Right);  
             //MessageBox.Show("" + ClientSize.Width + "," + ClientSize.Height);
             //MessageBox.Show("" + label1.Width + "," + label1.Height);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
         
     }
